@@ -52,7 +52,7 @@
           <div>
             <h2 class="modal-title">⚙️ Customize Dashboard</h2>
             <p class="modal-subtitle">
-              Add, edit or reorganize your startup screen links instantly.
+              Add, edit, reorder or migrate your startup screen links instantly.
             </p>
           </div>
           <!-- Close Button -->
@@ -74,7 +74,9 @@
           <div id="panel-visual" class="panel-grid">
             <!-- Left: Form Input -->
             <div class="form-container">
-              <h3 class="panel-section-title">Add New Link</h3>
+              <h3 id="form-action-title" class="panel-section-title">
+                Add New Link
+              </h3>
 
               <div class="input-group">
                 <label class="input-label" for="form-category-select"
@@ -123,13 +125,21 @@
                 />
               </div>
 
-              <button id="add-link-btn" class="action-btn primary-btn">
-                Add to Dashboard
-              </button>
+              <div class="button-row">
+                <button id="add-link-btn" class="action-btn primary-btn">
+                  Add to Dashboard
+                </button>
+                <button
+                  id="cancel-edit-btn"
+                  class="action-btn secondary-btn hidden"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
 
-            <!-- Right: Manage list with quick delete action -->
-            <div class="list-container">
+            <!-- Right: Manage list with edit, delete, move, and reorder actions -->
+            <div class="list-container custom-scrollbar">
               <h3 class="panel-section-title">Manage Existing Links</h3>
               <div id="visual-manage-list" class="manage-list custom-scrollbar">
                 <!-- Render dynamic management items here -->
