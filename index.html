@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Search Bar matching image_6de061.png proportions -->
+      <div class="search-container">
+        <form
+          action="https://www.google.com/search"
+          method="get"
+          target="_blank"
+          class="search-form"
+        >
+          <input
+            type="text"
+            name="q"
+            id="main-search-input"
+            class="search-box"
+            placeholder="Search with Google..."
+            autocomplete="off"
+            autofocus
+          />
+        </form>
+      </div>
+
+      <!-- Live Preview Dashboard Grid (Matching image_6de061.png) -->
+      <div id="live-dashboard" class="dashboard">
+        <!-- Dynamic columns will append here -->
+      </div>
+    </div>
+
+    <!-- Minimal Floating Action Button for opening settings modal -->
+    <button
+      id="open-modal-btn"
+      class="open-modal-btn"
+      aria-label="Customize Homepage"
+    >
+      <span>⚙️</span> Customize
+    </button>
+
+    <!-- Backdrop Overlay Container -->
+    <div id="settings-modal" class="modal-backdrop hidden">
+      <!-- Modal Content box -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title">⚙️ Customize Dashboard</h2>
+            <p class="modal-subtitle">
+              Add, edit or reorganize your startup screen links instantly.
+            </p>
+          </div>
+          <!-- Close Button -->
+          <button id="close-modal-btn" class="close-modal-btn">✕</button>
+        </div>
+
+        <!-- Custom Tab Navigation -->
+        <div class="modal-tabs-container">
+          <div class="tabs-wrapper">
+            <button id="tab-visual" class="tab-btn active">Form Manager</button>
+            <button id="tab-json" class="tab-btn">Raw JSON Backup</button>
+          </div>
+          <div id="status-toast" class="toast hidden">Saved successfully!</div>
+        </div>
+
+        <!-- Modal Body Area -->
+        <div class="modal-body custom-scrollbar">
+          <!-- TAB 1: Visual Manager View -->
+          <div id="panel-visual" class="panel-grid">
+            <!-- Left: Form Input -->
+            <div class="form-container">
+              <h3 class="panel-section-title">Add New Link</h3>
+
+              <div class="input-group">
+                <label class="input-label" for="form-category-select"
+                  >Category</label
+                >
+                <div class="select-row">
+                  <select
+                    id="form-category-select"
+                    class="form-input select-box"
+                  >
+                    <!-- Populated dynamically -->
+                  </select>
+                  <input
+                    type="text"
+                    id="form-category-custom"
+                    class="form-input custom-input"
+                    placeholder="Or type new..."
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label" for="form-name"
+                  >Name / Display Label</label
+                >
+                <input
+                  type="text"
+                  id="form-name"
+                  class="form-input"
+                  placeholder="e.g. GitHub"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="input-group">
+                <label class="input-label" for="form-url"
+                  >URL Web Address</label
+                >
+                <input
+                  type="text"
+                  id="form-url"
+                  class="form-input"
+                  placeholder="e.g. https://github.com"
+                  autocomplete="off"
+                />
+              </div>
+
+              <button id="add-link-btn" class="action-btn primary-btn">
+                Add to Dashboard
+              </button>
+            </div>
+
+            <!-- Right: Manage list with quick delete action -->
+            <div class="list-container">
+              <h3 class="panel-section-title">Manage Existing Links</h3>
+              <div id="visual-manage-list" class="manage-list custom-scrollbar">
+                <!-- Render dynamic management items here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Advanced Raw JSON Edit View -->
+          <div id="panel-json" class="panel-json-view hidden">
+            <div class="json-header">
+              <h3 class="panel-section-title">Raw Configuration</h3>
+              <button id="copy-json-btn" class="action-btn secondary-btn">
+                Copy to Clipboard
+              </button>
+            </div>
+            <textarea
+              id="json-input"
+              class="json-textarea custom-scrollbar"
+              spellcheck="false"
+            ></textarea>
+            <button id="save-json-btn" class="action-btn primary-btn">
+              Apply Raw JSON Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
